@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Void Controller</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="desktop-nav">
+        <div class="logo">Stardust</div>
+        <div class="links">
+            <a href="#" data-target="home">Home</a>
+            <a href="#" data-target="denial">Denial</a>
+            <a href="#" data-target="anger">Anger</a>
+            <a href="#" data-target="bargaining">Bargaining</a>
+            <a href="#" data-target="depression">Depression</a>
+            <a href="#" data-target="acceptance">Acceptance</a>
+        </div>
+    </nav>
+    
+    <main>
+        <!-- Home State -->
+        <div id="home" class="satire-container active">
+            <h1>Initiate Universal Harmony</h1>
+            <p>Clicking the button below will instantly resolve all existential dread and global crises.</p>
+            <button class="magic-btn">Make Everything Perfect</button>
+            <div class="status-message hidden">
+                <div class="spinner"></div>
+                <span class="text">Recalibrating reality... Error 404: Meaning not found. Accept the void.</span>
+            </div>
+        </div>
+
+        <!-- Denial State -->
+        <div id="denial" class="satire-container hidden">
+            <h1>It's Fine. Everything is Fine.</h1>
+            <p>This website will definitely fix your life. The code is flawless, just like your life choices.</p>
+        </div>
+
+        <!-- Anger State -->
+        <div id="anger" class="satire-container hidden">
+            <h1>System Failure</h1>
+            <p>Why isn't the UI loading true happiness faster?! Who coded this garbage universe? Demand a refund from the cosmic manager.</p>
+        </div>
+
+        <!-- Bargaining State -->
+        <div id="bargaining" class="satire-container hidden">
+            <h1>Ctrl+Z on Reality</h1>
+            <p>If you just click between these tabs one more time, maybe a sense of purpose will finally render.</p>
+        </div>
+
+        <!-- Depression State -->
+        <div id="depression" class="satire-container hidden">
+            <h1>Connection Lost</h1>
+            <p>The server is unreachable. Just like your childhood dreams. Why even bother parsing the DOM?</p>
+        </div>
+
+        <!-- Acceptance State -->
+        <div id="acceptance" class="satire-container hidden">
+            <h1>Embrace the Void</h1>
+            <p>It's just HTML and CSS. We are all just dust compiling in the void. Close the tab and go outside.</p>
+        </div>
+    </main>
+
+    <script>
+        // DOM Elements
+        const navLinks = document.querySelectorAll('.links a');
+        const sections = document.querySelectorAll('.satire-container');
+
+        // Navigation Routing
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('data-target');
+                
+                // Hide all sections
+                sections.forEach(sec => {
+                    sec.classList.remove('active');
+                    sec.classList.add('hidden');
+                });
+                
+                // Show targeted section
+                const targetSec = document.getElementById(targetId);
+                targetSec.classList.remove('hidden');
+                targetSec.classList.add('active');
+            });
+        });
+
+        // Button Animation
+        document.querySelector('.magic-btn').addEventListener('click', function() {
+            this.style.display = 'none';
+            const statusMessage = this.nextElementSibling;
+            statusMessage.classList.remove('hidden');
+            statusMessage.classList.add('fade-in');
+        });
+    </script>
+</body>
+</html>

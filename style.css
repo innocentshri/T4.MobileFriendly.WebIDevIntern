@@ -1,0 +1,159 @@
+/* --- 1. THEME VARIABLES & DESKTOP STYLES --- */
+:root {
+    --bg-color: #FAFAF5; /* Light warm white */
+    --sage-green: #8FA48C;
+    --sage-dark: #6B7B69;
+    --text-main: #3E453D;
+    --nav-bg: #FFFFFF;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.desktop-nav {
+    width: 1000px; /* Fixed width for the internship task criteria */
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: var(--nav-bg);
+    border-bottom: 2px solid var(--sage-green);
+    box-sizing: border-box;
+}
+
+.logo {
+    font-weight: bold;
+    color: var(--sage-dark);
+}
+
+.links a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: var(--text-main);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.links a:hover {
+    color: var(--sage-green);
+}
+
+main {
+    width: 1000px;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.satire-container {
+    background: var(--nav-bg);
+    padding: 80px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(143, 164, 140, 0.15);
+    border: 1px solid rgba(143, 164, 140, 0.3);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: 300;
+    color: var(--sage-dark);
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: 2px solid var(--sage-green);
+    background: transparent;
+    color: var(--sage-dark);
+    transition: all 0.3s ease;
+    margin-top: 30px;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: var(--sage-green);
+    color: #fff;
+}
+
+/* --- JS Classes & Animations --- */
+.hidden { display: none !important; }
+.active { display: block; animation: slideUp 0.4s ease; }
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 3s forwards;
+    margin-top: 30px;
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    30% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-top-color: var(--sage-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+
+/* --- 2. DELIVERABLES: CSS MEDIA QUERIES --- */
+@media (max-width: 768px) {
+    .desktop-nav {
+        width: 100%;
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .links {
+        display: flex;
+        flex-direction: row; 
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 15px;
+        padding: 0;
+    }
+
+    .links a {
+        margin: 8px 10px;
+    }
+
+    main {
+        width: 90%; 
+        margin-top: 40px;
+    }
+
+    .satire-container {
+        padding: 40px 20px; 
+    }
+
+    h1 {
+        font-size: 1.8rem; 
+    }
+}
